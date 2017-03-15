@@ -63,6 +63,31 @@
 			mysql_close($link);
 		}
 	}
+	class supr{
+		$query;
+		$result;
+		function supr(){
+			$query = "delete from tienda";
+			$result = mysql_query($query);
+		}
+		function suprprd($id){
+			$query = "delete from productos where idprod="+id+";";
+			$result = mysql_query($query);
+		}
+		function suprcl($id){
+			$query = "delete from clientes where idcliente="+id+";";
+			$result = mysql_query($query);
+		}
+		function suprcar($id){
+			$query = "delete from carro where idcarr="+id+";";
+			$result = mysql_query($query);
+		}
+		function suprlncar($id){
+			$query = "delete from lncarr where idlncar="+id+";";
+			$result = mysql_query($query);
+		}
+	}
+	}
 	class lncarr{
 		var $idlncar;
 		var $car;
@@ -87,7 +112,7 @@
 			$this->subtotal=$subtotal;
 		}
 	}
-	class lncarr{
+	class carr{
 		var $idcarro;
 		var $car;
 		var $lncarr;
@@ -107,14 +132,14 @@
 		}
 	}
 	class add{
-		function addpdt($producto){
-			mysqli_query($link, "INSERT INTO productos VALUES ()");
+		function addpdt($pd){
+			mysqli_query($link, "INSERT INTO productos VALUES ("+pd->idprod+","+pd->nom+","+pd->precio+","+pd->desc+")");
 		}
-		function addclt($cliente){
-			mysqli_query($link, "INSERT INTO clientes VALUES ()");
+		function addclt($cl){
+			mysqli_query($link, "INSERT INTO clientes VALUES ("+cl->idcliente+","+cl->nom+","+cl->dir+","+cl->car+")");
 		}
-		function addcarro($carro){
-			mysqli_query($link, "INSERT INTO carro VALUES ()");
+		function addcarro($car){
+			mysqli_query($link, "INSERT INTO carro VALUES ("+car->idcarro+","+car->cliente+","+car->lncar+","+car->tot+")");
 		}
 		function addlncarro($lncar){
 			mysqli_query($link, "INSERT INTO lineacarr VALUES ()");
