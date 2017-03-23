@@ -4,8 +4,8 @@
 		var $usu;
 		var $psw;
 		function conectar($bd,$usu,$psw){
-			$link=mysql_connect("localhost",$usu,$psw);
-			mysql_select_db($bd,$link) OR DIE ("Error: No es posible establecer la conexión");
+			$link=mysqli_connect("localhost",$usu,$psw);
+			mysqli_select_db($bd,$link) OR DIE ("Error: No es posible establecer la conexión");
 		}
 	}
 	class producto{
@@ -30,15 +30,12 @@
 		}
 		function supr($id){
 			$query = "delete from productos where idprod="+id+";";
-			$result = mysql_query($query);
+			$result = mysqli_query($query);
 		}
-		class consulta{
-		$query;
-		$result;
 		function cons(){
 			$query = 'SELECT * FROM productos';
-			$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());echo "<table>\n";
-			while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			$result = mysqli_query($query) or die('Consulta fallida: ' . mysqli_error());echo "<table>\n";
+			while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				echo "\t<tr>\n";
 				foreach ($line as $col_value) {
 					echo "\t\t<td>$col_value</td>\n";
@@ -46,8 +43,8 @@
 					echo "\t</tr>\n";
 				}
 			echo "</table>\n";
-			mysql_free_result($result);
-			mysql_close($link);
+			mysqli_free_result($result);
+			mysqli_close($link);
 			}
 		}
 	}
@@ -73,7 +70,21 @@
 		}
 		function supr($id){
 			$query = "delete from clientes where idcliente="+id+";";
-			$result = mysql_query($query);
+			$result = mysqli_query($query);
+		}
+		function cons(){
+			$query = 'SELECT * FROM clientes';
+			$result = mysqli_query($query) or die('Consulta fallida: ' . mysqli_error());echo "<table>\n";
+			while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				echo "\t<tr>\n";
+				foreach ($line as $col_value) {
+					echo "\t\t<td>$col_value</td>\n";
+				}
+					echo "\t</tr>\n";
+				}
+			echo "</table>\n";
+			mysqli_free_result($result);
+			mysqli_close($link);
 		}
 	}
 	
@@ -82,8 +93,8 @@
 		$result;
 		function cons(){
 			$query = 'SELECT * FROM tienda';
-			$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());echo "<table>\n";
-			while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			$result = mysqli_query($query) or die('Consulta fallida: ' . mysql_error());echo "<table>\n";
+			while ($line = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 				echo "\t<tr>\n";
 				foreach ($line as $col_value) {
 					echo "\t\t<td>$col_value</td>\n";
@@ -91,8 +102,8 @@
 					echo "\t</tr>\n";
 				}
 			echo "</table>\n";
-			mysql_free_result($result);
-			mysql_close($link);
+			mysqli_free_result($result);
+			mysqli_close($link);
 		}
 	}
 	
@@ -124,7 +135,21 @@
 		}
 		function supr($id){
 			$query = "delete from lncarr where idlncar="+id+";";
-			$result = mysql_query($query);
+			$result = mysqli_query($query);
+		}
+		function cons(){
+			$query = 'SELECT * FROM lineacarr';
+			$result = mysqli_query($query) or die('Consulta fallida: ' . mysqli_error());echo "<table>\n";
+			while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				echo "\t<tr>\n";
+				foreach ($line as $col_value) {
+					echo "\t\t<td>$col_value</td>\n";
+				}
+					echo "\t</tr>\n";
+				}
+			echo "</table>\n";
+			mysqli_free_result($result);
+			mysqli_close($link);
 		}
 	}
 	class carr{
@@ -150,7 +175,21 @@
 		}
 		function supr($id){
 			$query = "delete from carro where idcarr="+id+";";
-			$result = mysql_query($query);
+			$result = mysqli_query($query);
+		}
+		function cons(){
+			$query = 'SELECT * FROM carro';
+			$result = mysqli_query($query) or die('Consulta fallida: ' . mysqli_error());echo "<table>\n";
+			while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				echo "\t<tr>\n";
+				foreach ($line as $col_value) {
+					echo "\t\t<td>$col_value</td>\n";
+				}
+					echo "\t</tr>\n";
+				}
+			echo "</table>\n";
+			mysqli_free_result($result);
+			mysqli_close($link);
 		}
 	}
 ?>
