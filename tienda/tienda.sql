@@ -35,6 +35,9 @@ CREATE TABLE `carro` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `carro` (`idcarro`, `cliente`, `lineascarr`, `total`) VALUES ('1', '1', '1', '99');
+INSERT INTO `carro` (`idcarro`, `cliente`, `lineascarr`, `total`) VALUES ('2', '2', '2', '60');
+
 --
 -- Estructura de tabla para la tabla `clientes`
 --
@@ -47,6 +50,8 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
+INSERT INTO `clientes` (`idcliente`, `nombre`, `direccion`, `carro`) VALUES ('1', 'manolo lopez', 'jodnmo', '1');
+INSERT INTO `clientes` (`idcliente`, `nombre`, `direccion`, `carro`) VALUES ('2', 'rosa paral', 'jodnmo', '2');
 
 --
 -- Estructura de tabla para la tabla `lineacarr`
@@ -63,6 +68,10 @@ CREATE TABLE `lineacarr` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `lineacarr` (`idlinea`, `carro`, `producto`, `precio`, `cantidad`, `subtotal`) VALUES ('1', '1', '1', '20', '5', '99');
+INSERT INTO `lineacarr` (`idlinea`, `carro`, `producto`, `precio`, `cantidad`, `subtotal`) VALUES ('2', '1', '3', '30', '2', '60');
+
+
 --
 -- Estructura de tabla para la tabla `productos`
 --
@@ -73,6 +82,10 @@ CREATE TABLE `productos` (
   `preciouni` decimal(2,0) NOT NULL,
   `descripcion` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `productos` (`idprod`, `nombre`, `preciouni`, `descripcion`) VALUES ('1', 'monitor', '30', 'ij');
+INSERT INTO `productos` (`idprod`, `nombre`, `preciouni`, `descripcion`) VALUES ('2', 'cable cobre', '5', 'ij');
+INSERT INTO `productos` (`idprod`, `nombre`, `preciouni`, `descripcion`) VALUES ('3', 'euroconector', '10', 'ij');
 
 --
 -- Índices para tablas volcadas
